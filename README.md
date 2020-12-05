@@ -21,7 +21,7 @@ Image Reconstruction Techniques for Absorption Imaging Analysis
 - */Probe-Reconstruction/PCA Functions/* contains functions used for PCA analysis. 
 - */Probe-Reconstruction/Gram Schmidt Functions/* contains functions used for Gram Schmidt analysis. 
 - *Probe-Reconstruction/Class Definitions/* contains class definitions for PCA and Gram Schmidt data structures 'PCAset' and 'GSset'
-- Rest of the functions in */Probe-Reconstruction/* are required to analyze the data at
+- Rest of the functions in */Probe-Reconstruction/* are required to analyze the data at <>
 - */Probe-Reconstruction/Test/* contains all the examples to run
 
 ## Installation
