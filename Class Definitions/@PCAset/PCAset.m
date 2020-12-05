@@ -1,13 +1,12 @@
 classdef PCAset
     properties
       % Very Basic Properties
-      RunNos       % Type of data [SingleFrq or DoubleFrq]
+      RunNos       % Run numbers for basis
       dateFile     % date of images
       basepath     % basepath
       PixX         % ROI along the column
       PixY         % ROI along the row
       Cam          % Camera
-      Mask         % Mask to mask probes before evaluating PCs
       
       % Derived Quantities
       PC          % 2D array of Principal Components. Each component is along a column. Rows represent the different pixels.
@@ -15,9 +14,7 @@ classdef PCAset
       Var         % Variance associated with each PC
     end
 
-    %% Methods
-    % The methods of this class call the following functions:
-    %   -Ring_ExtractData
+    %% Methods =======================================================================
     methods
         
         % Constructor =================================================================
@@ -39,7 +36,12 @@ classdef PCAset
 
                 A = DataExp(obj.dateFile, obj.RunNos,obj.Cam,obj.basepath);
                 obj.PixY = [1,A.pixNo(1)]; obj.PixX = [1,A.pixNo(2)];
-                [DataIn] = PCAset_ArrangeRef(A, obj.PixX, obj.PixY);
+                DataIn = zeros(obj.PixY(2)*obj.PixX(2),length(obj.RunNos));
+                [~, ~, INPUT_data] = ExtractOD(A,'intFlcCorr',0);
+                % Reshape and place data
+                for ii = 1:1:length(obj.RunNos)
+                    DataIn(:,ii) = double(reshape(INPUT_data(:,:,ii),[size(INPUT_data,1)*size(INPUT_data,2),1]));
+                end
             else
                 p = inputParser;
                 addRequired(p,'DataIn',@isnumeric);
@@ -48,7 +50,7 @@ classdef PCAset
                 obj.PixY = [1,size(DataIn,1)]; obj.PixX = [1,size(DataIn,2)];
                 DataIn = reshape(DataIn,[obj.PixY(2)*obj.PixX(2),size(DataIn,3)]);
             end
-            [~, obj.PC, obj.Var] = PCA_SVD(DataIn,'econ');
+            [~, obj.PC, obj.Var] = PCA_EvaluatePCs(DataIn,'mode','econ');
             obj.meanval = mean(DataIn,2);
             obj.PC = obj.PC(:,1:min(500,numel(obj.RunNos)));
                        
@@ -57,20 +59,18 @@ classdef PCAset
         % Function to reconstruct image ======================================
         % Inputs:
         %   obj: The 'PCAset' class object
-        %   N_ev: (Optional) The number of eigenvalues to be used for PCA
+        %   N_ev: (Optional) The number of eigenvectors to be used for PCA
         function [ImageProj, coeff] = PCAset_ReConstr(obj, ImageIn, varargin) 
             p = inputParser;
             p.addParameter('N_ev',size(obj.PC,2),@(x)isnumeric(x));
             p.addParameter('CropX',[],@(x)isnumeric(x));
             p.addParameter('CropY',[],@(x)isnumeric(x));
             p.addParameter('Mask',[],@(x)isnumeric(x));
-            p.addParameter('ScaleProbe',true,@(x)islogical(x));
             parse(p,varargin{:}); 
             N_ev = p.Results.N_ev;
             cropX = p.Results.CropX;
             cropY = p.Results.CropY;
             mask = p.Results.Mask;
-            ScaleProbe = p.Results.ScaleProbe;
             
             Nx = obj.PixX(2)-obj.PixX(1)+1; 
             Ny = obj.PixY(2)-obj.PixY(1)+1;
@@ -89,20 +89,12 @@ classdef PCAset
             end
             
             ImageIn = ImageIn.*mask; ImageIn = reshape(ImageIn,[Nx*Ny,1]);
-            coeff = obj.PC'*(ImageIn-obj.meanval);
+            coeff = obj.PC'*(ImageIn-obj.meanval.*reshape(mask,[Nx*Ny,1]));
             ImageProj = obj.meanval;
             for ii= 1:1:N_ev       
                 ImageProj = ImageProj+coeff(ii,1)*obj.PC(:,ii);
             end
             ImageProj = reshape(ImageProj,[Ny,Nx]);
-            % Scale the Reconstructed Image
-            if ScaleProbe
-                ImageIn = reshape(ImageIn,[Ny,Nx]);
-                avg_out_atm = ImageIn(mask~=0); avg_out_atm = mean(avg_out_atm(:));
-                avg_out_re = ImageProj(mask~=0); avg_out_re = mean(avg_out_re(:));
-                rescale_factor = avg_out_atm/avg_out_re;
-                ImageProj = ImageProj*rescale_factor;               
-            end
             
         end
   
