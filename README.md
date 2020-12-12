@@ -20,7 +20,7 @@ One can clearly see the spurious fringes in the above images. To avoid this issu
 <table>
 <tr>
 <td> <div align="center">Gram Schmidt</div> </td>
-<td><img src="/Images for Readme/OD_Images/ODs_Date2020-11-24_GS.png" alt="Drawing" width="300"/> </td>
+<td><img src="/Images for Readme/ODs_Date2020-11-24_GS.png" alt="Drawing" width="300"/> </td>
 </tr>
 <tr>
 <td> <div align="center">PCA</div> </td>
@@ -43,15 +43,13 @@ One can clearly see the spurious fringes in the above images. To avoid this issu
   - Change the variable *DataFolderPath* and set it to the path to directory *../Test/* on your local machine.
 <table>
 <tr>
-<td> <div align="center">PCA</div> </td>
-<td><img src="/Images for Readme/Installation.png" alt="Drawing" width="300"/> </td>
+<td><img src="/Images for Readme/Installation.png" alt="Drawing" width="700"/> </td>
 </tr>
 </table>
+
 - Run the examples.
 
-## Usage
-In StartupPR.m* define the varaibles 'Functions' and 'DataFolder' as paths to */Probe-Reconstruction/* and your data folder respectively.
-Run the example codes.
+
 
 
 
