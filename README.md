@@ -12,7 +12,7 @@ In the ideal case, these two images should be exactly same, except for the shado
 <table>
 <tr>
 <td> <div align="left"> Conventional Abs. Imaging </div></td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_None.png" alt="Drawing" width="300"/> </td>
+<td><img src="/Images for Readme/ODs_Date2020-11-24_None.png" alt="Drawing" width="600"/> </td>
 </tr>
 </table>
 
@@ -20,11 +20,11 @@ One can clearly see the spurious fringes in the above images. To avoid this issu
 <table>
 <tr>
 <td> <div align="center">Gram Schmidt</div> </td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_GS.png" alt="Drawing" width="300"/> </td>
+<td><img src="/Images for Readme/ODs_Date2020-11-24_GS.png" alt="Drawing" width="600"/> </td>
 </tr>
 <tr>
 <td> <div align="center">PCA</div> </td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_PCA.png" alt="Drawing" width="300"/> </td>
+<td><img src="/Images for Readme/ODs_Date2020-11-24_PCA.png" alt="Drawing" width="600"/> </td>
 </tr>
 </table>
 
