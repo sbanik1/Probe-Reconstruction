@@ -18,7 +18,7 @@ function [FunctionsPath,DataFolderPath,OutFolderPath] =   StartupPR
     FunctionsPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/probeReconstruction/src/';
     DataFolderPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/probeReconstruction/test/resources/';
     
-    %% Set the output folder path
+    %% Set the output folder path ==========================================
     OutFolderPath = strrep(DataFolderPath,'resources','out');
 
 end
