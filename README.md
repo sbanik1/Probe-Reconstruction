@@ -12,7 +12,7 @@ In the ideal case, these two images should be exactly same, except for the shado
 <table>
 <tr>
 <td> <div align="left"> Conventional Abs. Imaging </div></td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_None.png" alt="Drawing" width="600"/> </td>
+<td><img src="/images/ODs_Date2020-11-24_None.png" alt="Drawing" width="600"/> </td>
 </tr>
 </table>
 
@@ -20,34 +20,34 @@ One can clearly see the spurious fringes in the above images. To avoid this issu
 <table>
 <tr>
 <td> <div align="center">Gram Schmidt</div> </td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_GS.png" alt="Drawing" width="600"/> </td>
+<td><img src="/images/ODs_Date2020-11-24_GS.png" alt="Drawing" width="600"/> </td>
 </tr>
 <tr>
 <td> <div align="center">PCA</div> </td>
-<td><img src="/Images for Readme/ODs_Date2020-11-24_PCA.png" alt="Drawing" width="600"/> </td>
+<td><img src="/images/ODs_Date2020-11-24_PCA.png" alt="Drawing" width="600"/> </td>
 </tr>
 </table>
 
-## Repo Structure
-- *../Test/* contains examples and sample data to play with. 
-- *../Functions/* contains all functions. Make sure to you add this directory to path.
-- *../Functions/PCA Functions/* contains functions used for PCA analysis. 
-- *../Functions/Gram Schmidt Functions/* contains functions used for Gram Schmidt analysis. 
-- *../Functions/Class Definitions/* contains class definitions for PCA and Gram Schmidt data structures 'PCAset' and 'GSset'.
-- *../Functions/Common OD Evaluation/* contains OD evaluation functions.
+## Contents
+This repo contains the source code, some use case examples and sample data to play with.
+- *../src/* contains the source code to perform probe reconstruction.
+- *../test/resources* contains the sample data.
+- *../test/use_case_examples/* contains the examples.
 
-## Installation
-- Clone this repository somewhere. 
-- Modify the startup code *../Test/2020/2020_11_24/StartupPR.m* as follows. 
+## Getting Started
+
+- Clone this repository. 
+```git clone https://github.com/sbanik1/Probe-Reconstruction <lcl_dir>```
+- Modify the startup code *../test/use_case_examples/StartupPR.m* as follows. 
   - Change the variable *FunctionsPath* and set it to the path to directory *../Functions/* on your local machine.
   - Change the variable *DataFolderPath* and set it to the path to directory *../Test/* on your local machine.
 <table>
 <tr>
-<td><img src="/Images for Readme/Installation.png" alt="Drawing" width="700"/> </td>
+<td><img src="/images/Installation.png" alt="Drawing" width="700"/> </td>
 </tr>
 </table>
 
-- Run the examples.
+- Run the examples in the directory *../test/use_case_examples/*, by either running them on the MATLAB IDE or via the command line.
 
 
 
