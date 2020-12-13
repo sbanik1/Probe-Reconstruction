@@ -48,6 +48,9 @@ This repo contains the source code, some use case examples and sample data to pl
 </table>
 
 - Run the examples in the directory *../test/use_case_examples/*, by either running them on the MATLAB IDE or via the command line.
+  - Change directory ```cd "../probeReconstruction/test/use_case_examples"```
+  - Run the MATLAB application ```/Applications/MATLAB_R2020a.app/bin/matlab -nodesktop```
+  - Run the example ```run PCA_EvaluateBasis.m```
 
 
 
