@@ -39,8 +39,8 @@ This repo contains the source code, some use case examples and sample data to pl
 - Clone this repository. 
 ```git clone https://github.com/sbanik1/Probe-Reconstruction <lcl_dir>```
 - Modify the startup code *../test/use_case_examples/StartupPR.m* as follows. 
-  - Change the variable *FunctionsPath* and set it to the path to directory *../Functions/* on your local machine.
-  - Change the variable *DataFolderPath* and set it to the path to directory *../Test/* on your local machine.
+  - Change the variable *FunctionsPath* and set it to the path to directory *../src/* on your local machine.
+  - Change the variable *DataFolderPath* and set it to the path to directory *../test/resources/* on your local machine.
 <table>
 <tr>
 <td><img src="/images/Installation.png" alt="Drawing" width="700"/> </td>
