@@ -15,8 +15,8 @@ function [FunctionsPath,DataFolderPath,OutFolderPath] =   StartupPR
     set(groot,'defaultLegendFontSize',20);
 
     %% Computer Dependent Paths ===========================================
-    FunctionsPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/Probe-Reconstruction/src/';
-    DataFolderPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/Probe-Reconstruction/test/resources/';
+    FunctionsPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/probeReconstruction/src/';
+    DataFolderPath = '/Users/swarnav/Google Drive/Work/Projects/Probe Reconstruction/probeReconstruction/test/resources/';
     
     %% Set the output folder path
     OutFolderPath = strrep(DataFolderPath,'resources','out');
